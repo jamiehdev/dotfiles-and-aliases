@@ -1,0 +1,86 @@
+# Set a longer command timeout if needed
+command_timeout = 1000
+
+# Two-line format: Top line with box character, username@hostname, directory, and git info
+# Bottom line with box character and prompt symbol
+format = """
+[╭─](bold blue)[$username[@](bold blue)$hostname](bold blue) in $directory$git_branch$git_status
+[╰─](bold blue)$character"""
+
+# Character module for prompt symbol
+[character]
+success_symbol = "[❯](bold blue)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
+# Username Module Configuration
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+# Hostname Module Configuration
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+trim_at = "-"
+style = "bold blue"
+disabled = false
+
+# Directory Module Configuration
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
+
+# Git Branch Module Configuration
+[git_branch]
+symbol = "󰘬 "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+
+# Git Status Module Configuration
+[git_status]
+style = "bold green"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "*${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+# Keep other modules disabled
+[os]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[helm]
+disabled = true
+
+[python]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
